@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.div2}>
         <Button
           style={styles.button}
-          onPress={() => navigation.replace("Services")}
+          onPress={() => navigation.navigate("Scan")}
         >
           Enter Lounge
         </Button>

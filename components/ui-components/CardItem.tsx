@@ -30,7 +30,7 @@ const Footer = (props: FooterProps) => (
   <View {...props} style={[styles.footerContainer]}>
     <Button
       style={styles.footerControl}
-      onPress={() => props.navigation.replace(props.redirect)}
+      onPress={() => props.navigation.navigate(props.redirect)}
       size="small"
     >
       View Details
