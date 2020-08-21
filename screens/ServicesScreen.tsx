@@ -7,16 +7,16 @@ const tempData = [
   {
     name: "Shower Stall",
     description: "Calm down, rest and take a shower in the lounge",
-    redirect: "",
+    redirect: "Showers",
   },
   {
     name: "Food Services",
     description: "Take a break and enjoy our variety of food",
-    redirect: "",
+    redirect: "Services",
   },
 ];
 
-export default function ServicesScreen({ navigation }) {
+export default function ServicesScreen({ navigation }: any) {
   const renderCards = () => {
     return tempData.map((d, index) => (
       <CardItem
@@ -24,6 +24,7 @@ export default function ServicesScreen({ navigation }) {
         serviceName={d.name}
         description={d.description}
         redirect={d.redirect}
+        navigation={navigation}
       />
     ));
   };

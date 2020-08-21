@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/HomeScreen";
 import ServicesScreen from "./screens/ServicesScreen";
 import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
+import ShowerScreen from "./screens/ShowerScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function App() {
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Services" component={ServicesScreen} />
+          <Stack.Screen name="Showers" component={ShowerScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>

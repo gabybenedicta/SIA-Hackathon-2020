@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Image, View } from "react-native";
-import { Avatar, Button, Icon, Layout, Spinner } from "@ui-kitten/components";
+import { Button } from "@ui-kitten/components";
 
 export default function HomeScreen({ navigation }) {
   return (
