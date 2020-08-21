@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, useAuthRequest, useAutoDiscovery } from 'expo-auth-session';
-import { Button, Platform } from 'react-native';
+import { Button, Platform, StyleSheet, View } from 'react-native';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -32,12 +32,22 @@ export default function App() {
   }, [response]);
 
   return (
-    <Button
-      disabled={!request}
-      title="Login"
-      onPress={() => {
-        promptAsync({ useProxy });
-      }}
-    />
+    <View style={styles.container}>
+      <Button
+        disabled={!request}
+        title="Login"
+        onPress={() => {
+          promptAsync({ useProxy });
+        }}
+      />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20
+  },
+})
