@@ -17,6 +17,7 @@ function App() {
             name="Singapore Airlines Lounges"
             component={HomeScreen}
           />
+          <Stack.Screen name="Lounge" component={LoungesScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>
