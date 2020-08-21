@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Card, Text, Autocomplete } from '@ui-kitten/components';
+import { Button, Card, Text } from '@ui-kitten/components';
 
 type CardProps = {
 	serviceName: string;
-	img: string;
 	description: string;
 	redirect: string;
 }
@@ -15,7 +14,6 @@ type HeaderProps ={
 
 type FooterProps ={
 	redirect:string;
-	style: any;
 }
 
 const Header = (props: HeaderProps) => (
@@ -25,36 +23,35 @@ const Header = (props: HeaderProps) => (
 );
 
 const Footer = (props: FooterProps) => (
-	<View {...props} style={[props.style, styles.footerContainer]}>
+	<View {...props} style={[styles.footerContainer]}>
 		<Button
 			style={styles.footerControl}
 			size='small'>
-			View Lounge
+			View Details
     </Button>
 	</View>
 );
 
 export default function CardItem(props: CardProps){
 	return(
+		<React.Fragment>
 		<Card style={styles.card} header={()=> <Header serviceName={props.serviceName} />} footer={()=> <Footer redirect={props.redirect} />}>
 		<Text>
 			{props.description}
 		</Text>
 	</Card>
+	</React.Fragment>
 	)
 }
 
 const styles = StyleSheet.create({
 	card: {
-		flex: 1,
 		margin: 2,
 		width: "100%",
 	},
 	footerContainer: {
 		flexDirection: 'row',
-		paddingLeft: 10,
-		paddingRight: 10,
-		paddingTop:10,
+		padding: 10,
 	},
 	footerControl: {
 		width: "100%"
@@ -64,5 +61,5 @@ const styles = StyleSheet.create({
 	},
 	location:{
 		paddingLeft: 10,
-	}
+	},
 });
