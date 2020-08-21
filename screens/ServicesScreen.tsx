@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CardItem from '../components/ui-components/CardItem';
+import { Button } from '@ui-kitten/components';
+
 const tempData = [
 	{
 		name: "Shower Stall",
@@ -25,6 +27,9 @@ export default function ServicesScreen() {
 	return (
 		<View style={styles.container}>
 				{renderCards()}
+			<View style={styles.buttonContainer}>
+				<Button style={styles.button}>Exit Lounge</Button>
+			</View>
 		</View>
 	);
 }
@@ -33,6 +38,13 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1, 
 		justifyContent: 'flex-start',
-	}
+	},
+	buttonContainer:{
+		position:"absolute",
+		bottom: 100,
+		flexDirection:"column",
+		padding: 10,
+		width: "100%"
+	},
 });
 

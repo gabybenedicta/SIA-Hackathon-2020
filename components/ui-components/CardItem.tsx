@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-import { Button, Card, Text, Autocomplete } from '@ui-kitten/components';
+import { StyleSheet, View } from 'react-native';
+import { Button, Card, Text } from '@ui-kitten/components';
 
 type CardProps = {
 	serviceName: string;
