@@ -29,6 +29,17 @@ export default function ServicesScreen({ navigation }: any) {
     ));
   };
 
+  const renderCards = () => {
+    return tempData.map((d, index) => (
+      <CardItem
+        key={index}
+        serviceName={d.name}
+        description={d.description}
+        redirect={d.redirect}
+      />
+    ));
+  };
+
   return (
     <View style={styles.container}>
       {renderCards()}
