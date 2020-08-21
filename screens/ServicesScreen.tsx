@@ -28,7 +28,7 @@ export default function ServicesScreen() {
 		<View style={styles.container}>
 				{renderCards()}
 			<View style={styles.buttonContainer}>
-				<Button style={styles.button}>Exit Lounge</Button>
+				<Button>Exit Lounge</Button>
 			</View>
 		</View>
 	);
