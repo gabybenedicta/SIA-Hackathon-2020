@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import axios from "axios";
 import { CommonActions } from "@react-navigation/native";
 import { NavigationActions } from "@react-navigation/native";
 
@@ -16,11 +17,17 @@ export default function ScannerPage({ navigation }) {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: any) => {
+  const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const response = await axios.post(
+      "https://loungewie.herokuapp.com/process_barcode/1",
+      {
+        barcodeValue: data,
+      }
+    );
     navigation.popToTop();
-    navigation.replace("Services");
+    navigation.replace(response.data);
   };
 
   if (hasPermission === null) {
