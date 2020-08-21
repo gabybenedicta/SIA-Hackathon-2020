@@ -3,7 +3,7 @@ import * as eva from '@eva-design/eva';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
-import LoungesScreen from './screens/LoungesScreen';
+import ServicesScreen from './screens/ServicesScreen';
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 
 const Stack = createStackNavigator();
@@ -14,7 +14,7 @@ function App() {
       <NavigationContainer>
       <Stack.Navigator>
         {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
-        <Stack.Screen name="Lounges" component={LoungesScreen} />
+        <Stack.Screen name="Services" component={ServicesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
     </ApplicationProvider>

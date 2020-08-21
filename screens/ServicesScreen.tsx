@@ -1,38 +1,38 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CardItem from '../components/ui-components/CardItem';
-
 const tempData = [
 	{
 		name: "Shower Stall",
-		img: "",
 		description:"Calm down, rest and take a shower in the lounge",
 		redirect: "",
 	},
 	{
 		name: "Food Services",
-		img: "",
-		description:"",
+		description:"Take a break and enjoy our variety of food",
 		redirect: "",
 	}
 ]
 
-
-
-export default function LoungesScreen() {
+export default function ServicesScreen() {
 
 	const renderCards = () =>{
 		return tempData.map((d,index) => (
-			<CardItem key={index} serviceName={d.name} description={d.description} redirect={d.redirect} img={d.img}/>
+			<CardItem key={index} serviceName={d.name} description={d.description} redirect={d.redirect}/>
 		))
 	}
 
 	return (
-		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-			<React.Fragment>
+		<View style={styles.container}>
 				{renderCards()}
-			</React.Fragment>
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1, 
+		justifyContent: 'flex-start',
+	}
+});
 
