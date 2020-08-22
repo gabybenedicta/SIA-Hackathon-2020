@@ -3,6 +3,8 @@ import { StyleSheet, View } from "react-native";
 import CardItem from "../components/ui-components/CardItem";
 import { Button } from "@ui-kitten/components";
 
+import axios from "axios";
+
 const tempData = [
   {
     name: "Shower Stall",
@@ -17,6 +19,10 @@ const tempData = [
 ];
 
 export default function ServicesScreen({ navigation }: any) {
+	const handleExitLounge = async () =>{
+		const response = await axios.post("https://loungewie.herokuapp.com/check_out_lounge/1");
+		navigation.replace("Home")
+	}
   const renderCards = () => {
     return tempData.map((d, index) => (
       <CardItem
@@ -33,7 +39,7 @@ export default function ServicesScreen({ navigation }: any) {
     <View style={styles.container}>
       {renderCards()}
       <View style={styles.buttonContainer}>
-        <Button onPress={() => navigation.replace("Home")}>Exit Lounge</Button>
+        <Button onPress={handleExitLounge}>Exit Lounge</Button>
       </View>
     </View>
   );

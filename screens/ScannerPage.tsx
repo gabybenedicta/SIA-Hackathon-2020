@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import axios from "axios";
-import { CommonActions } from "@react-navigation/native";
-import { NavigationActions } from "@react-navigation/native";
 
-export default function ScannerPage({ navigation }) {
+export default function ScannerPage({ navigation }: any) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
