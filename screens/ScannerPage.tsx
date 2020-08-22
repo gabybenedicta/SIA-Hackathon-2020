@@ -19,7 +19,7 @@ export default function ScannerPage({ navigation }) {
 
   const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     const response = await axios.post(
       "https://loungewie.herokuapp.com/process_barcode/1",
       {
