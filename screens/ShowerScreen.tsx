@@ -106,7 +106,8 @@ export default function ShowerScreen({ navigation }: any) {
 
   useEffect(()=>{
     const timer = setTimeout(() => {
-      setTimeToggle(!timeToggle)
+      setTimeToggle(!timeToggle);
+      console.log("refreshing");
     }, 100000);
     
     async function apiRequest(){
