@@ -23,8 +23,12 @@ export default function ScannerPage({ navigation }: any) {
         barcodeValue: data,
       }
     );
-    navigation.popToTop();
-    navigation.replace(response.data);
+    if (response.data === "Services") {
+      navigation.popToTop();
+      navigation.replace(response.data);
+    } else {
+      navigation.replace(response.data);
+    }
   };
 
   if (hasPermission === null) {
