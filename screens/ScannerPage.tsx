@@ -10,7 +10,7 @@ export default function ScannerPage({ navigation }: any) {
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
-      //@ts-ignore
+			//@ts-ignore
       setHasPermission(status === "granted");
     })();
   }, []);
@@ -18,7 +18,7 @@ export default function ScannerPage({ navigation }: any) {
   const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
     const response = await axios.post(
-      "https://loungewie.herokuapp.com/process_barcode/1",
+      "https://loungewie.herokuapp.com/process_barcode/3",
       {
         barcodeValue: data,
       }
