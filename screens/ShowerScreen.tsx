@@ -33,6 +33,8 @@ const Footer = (props: FooterProps) => {
     props.setCanShower(response.data.canShower);
     props.setisInShower(response.data.isInShower);
     props.setIsJoined(response.data.isJoined);
+    props.setQueueLength(response.data.queueLength);
+    props.setStallEnter(response.data.stallEnter);
   }
 
   const checkInShower = async() =>{
@@ -40,6 +42,8 @@ const Footer = (props: FooterProps) => {
     props.setCanShower(response.data.canShower);
     props.setisInShower(response.data.isInShower);
     props.setIsJoined(response.data.isJoined);
+    props.setQueueLength(response.data.queueLength);
+    props.setStallEnter(response.data.stallEnter);
   }
 
   const checkOutShower = async() =>{
@@ -47,6 +51,8 @@ const Footer = (props: FooterProps) => {
     props.setCanShower(response.data.canShower);
     props.setisInShower(response.data.isInShower);
     props.setIsJoined(response.data.isJoined);
+    props.setQueueLength(response.data.queueLength);
+    props.setStallEnter(response.data.stallEnter);
     props.navigation.replace("Services");
   }
 
