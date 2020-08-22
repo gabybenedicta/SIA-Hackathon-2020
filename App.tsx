@@ -1,15 +1,24 @@
-import * as React from 'react';
-import * as WebBrowser from 'expo-web-browser';
-import { makeRedirectUri, useAuthRequest, useAutoDiscovery } from 'expo-auth-session';
-import { Button, Platform, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { Button, Platform, Text, View } from 'react-native';
+import {
+  useAutoDiscovery,
+  useAuthRequest,
+  makeRedirectUri,
+} from 'expo-auth-session';
+import { maybeCompleteAuthSession } from 'expo-web-browser';
 
-WebBrowser.maybeCompleteAuthSession();
+if (Platform.OS === 'web') {
+  maybeCompleteAuthSession();
+}
 
-const useProxy = Platform.select({ web: false, default: true });
+const useProxy = true;
 
 export default function App() {
   // Endpoint
-  const discovery = useAutoDiscovery('https://dev-976155.okta.com/oauth2/default');
+  const discovery = useAutoDiscovery(
+    'https://dev-976155.okta.com/oauth2/default'
+  );
+
   // Request
   const [request, response, promptAsync] = useAuthRequest(
     {
@@ -25,29 +34,20 @@ export default function App() {
     discovery
   );
 
-  React.useEffect(() => {
-    if (response?.type === 'success') {
-      const { code } = response.params;
-    }
-  }, [response]);
-
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <Button
+        title='Login!'
         disabled={!request}
-        title="Login"
-        onPress={() => {
-          promptAsync({ useProxy });
-        }}
+        onPress={() => promptAsync({ useProxy })}
       />
+      {response && <Text>{JSON.stringify(response, null, 2)}</Text>}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20
-  },
-})
